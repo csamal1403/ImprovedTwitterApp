@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TwitterApp</string>
+    <string name="action_settings"> Menu </string>
+    <string name="content">Profile Image</string>
+    <string name="tweet">Tweets </string>
+    <string name="loading">Loading ....</string>
+     <string name="Downloading">Downloading Tweets...</string>
+    
+</resources>
