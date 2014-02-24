@@ -19,9 +19,9 @@ import android.widget.TextView;
 public class MainActivity extends Activity implements OnItemClickListener{
     
 	
-	TextView loader;
-	ListView listUsers;
-	Context mContext;
+     TextView loader;
+     ListView listUsers;
+     Context mContext;
     UserAdapter adapter;
    
     ArrayList<Bitmap> profileImg;
