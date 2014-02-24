@@ -51,7 +51,7 @@ public class TweetDownloader extends AsyncTask<String, Integer, ArrayList<TweetI
         
 	   
 		mParentActivity = userActivity;
-	//	mApplicationContext = parentActivity.getApplicationContext();
+	
 
 	}
 
@@ -67,7 +67,7 @@ public class TweetDownloader extends AsyncTask<String, Integer, ArrayList<TweetI
 		mTweets = new ArrayList<TweetItem>();
 		 
 		 
-			
+			//Downloads five recent tweets of the User Selected..
 			
 				try {
 					ResponseList<twitter4j.Status> status1;
@@ -117,7 +117,7 @@ public class TweetDownloader extends AsyncTask<String, Integer, ArrayList<TweetI
 	
 	
 	
-	
+	// Authorization needed to get data from  Twitter...
 	 private Twitter getTwitter() {
 		 
 	        ConfigurationBuilder cb = new ConfigurationBuilder();

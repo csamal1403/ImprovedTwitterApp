@@ -63,7 +63,7 @@ public class UsersDownloader extends AsyncTask<String, Void, ArrayList<TweetItem
 
 	
    
-	//Download the User data from TWITTER..
+	//Download the Profile Image, Description, Name, Location of the User  from TWITTER..
 	@Override
 	protected ArrayList<TweetItem> doInBackground(String... users) {
 		

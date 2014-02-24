@@ -51,8 +51,9 @@ public class UserActivity extends Activity{
 		
 		tweet = new ArrayList<TweetItem>();
 		
-		Intent intent = getIntent();
 		
+		//Getting the Extras from the Intent that started this Activity..
+		Intent intent = getIntent();
 		result = intent.getStringExtra("key");
 		screenName = intent.getStringExtra("screenName");
 		Location = intent.getStringExtra("Location");
@@ -60,12 +61,11 @@ public class UserActivity extends Activity{
 		pic = (Bitmap)intent.getParcelableExtra("profileImg");
 		
 		
-		
-		container = (LinearLayout) findViewById(R.id.containerUser);
+		//Getting reference to the UI Elements..
+		  container = (LinearLayout) findViewById(R.id.containerUser);
 		  userInfo = (TextView) findViewById(R.id.userInfo);
 		  userLocation = (TextView) findViewById(R.id.userLocation);
 	      userName = (TextView) findViewById(R.id.userName);
-	     
 	      profileImage = (ImageView) findViewById(R.id.profileImage);
 	      listTweets = (ListView) findViewById(R.id.listTweets);
 	      tweetLabel = (TextView) findViewById(R.id.tweetLabel);
@@ -76,7 +76,7 @@ public class UserActivity extends Activity{
 		 mContext = getApplicationContext();
 	     tweetAdapter = new TweetAdapter(mContext);
 		
-	     
+	    //Executing the Tweet Downloader Async Task to download 5 recent Tweets of the User... 
         new TweetDownloader(this).execute(result);
         
 		 

@@ -8,14 +8,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
+//Shows the List of Users...
 
 public class MainActivity extends Activity implements OnItemClickListener{
     
@@ -28,8 +27,8 @@ public class MainActivity extends Activity implements OnItemClickListener{
     ArrayList<Bitmap> profileImg;
     ArrayList<TweetItem> tweet;
     
-   String[] user = {"@HannahTrigwell","@BestMackleMore","@Eminem","@taylorswift13","@GabrielleAplin","@Imaginedragons","@ladygaga"};
-   String[] screenName,Location,Info;
+    String[] user = {"@HannahTrigwell","@BestMackleMore","@Eminem","@taylorswift13","@GabrielleAplin","@Imaginedragons","@ladygaga"};
+ 
 	
  
    @Override
@@ -47,16 +46,20 @@ public class MainActivity extends Activity implements OnItemClickListener{
        listUsers = (ListView) findViewById(R.id.listUsers);
        
        
+       //The Text with the Blue Background while Downloading the Tweets..
        loader.setBackgroundColor(Color.rgb(79, 213, 214));
         
+       //Adapter to be used for ListView..
         mContext = getApplicationContext();
         adapter = new UserAdapter(mContext);
         
-        //Use the AsyncTask to Download..
+        //Use the UsersDownloader AsyncTask to Download..
         new UsersDownloader(this).execute(user);
       
         
         listUsers.setAdapter(adapter);
+        
+        //When the user Clicks an Item in the List View
         listUsers.setOnItemClickListener(this); 
        
        
@@ -64,20 +67,24 @@ public class MainActivity extends Activity implements OnItemClickListener{
 	}
 
   
-    
+   
+   
+   //Called when the UsersDownloader have completed downloading and returns a list of Tweet Items...
   //Update the UI elements when the AsyncTask have done Downloading..        
   public void update(ArrayList<TweetItem> tItems){
 	
 	  
-	  loader.setVisibility(TextView.GONE);
+	  
+	  //The "Downloading Tweets" text along with the background colour will get Invisible...
+	      loader.setVisibility(TextView.GONE);
 	  
 	  
-	 for(int i=0 ; i < tItems.size();i++){
+	         for(int i=0 ; i < tItems.size();i++){
 	
-		tweet.add(tItems.get(i));
-		 adapter.add(tItems.get(i));
+		            tweet.add(tItems.get(i));
+		            adapter.add(tItems.get(i));
 		 
-	 }
+	         }
 	 
 	 
 	  
@@ -90,8 +97,9 @@ public class MainActivity extends Activity implements OnItemClickListener{
 @Override
 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 	
-	
-	 Log.i("Twitter App", "onItem Clicked");
+	//The Image and the text downloaded to be passed to the User Activity...to avoid wasting the profile Images again 
+	//again in UserActivity...
+
 	 
 	 Intent intent = new Intent(getApplicationContext(), UserActivity.class);
 	 intent.putExtra("key", user[position]);
@@ -100,7 +108,7 @@ public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	 intent.putExtra("Location", tweet.get(position).getLocation());
 	 intent.putExtra("profileImg", tweet.get(position).getProfileImage());
 	 
-	 Log.i("Twitter App", "Starting User Activity");
+
 	 
      startActivity(intent);
 	
