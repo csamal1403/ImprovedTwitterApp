@@ -81,7 +81,7 @@ public class TweetItem {
 		return ProfileImage;
 	}
 	
-	
+
 	public void setProfileImage(Bitmap profileImage) {
 		ProfileImage = profileImage;
 	}
