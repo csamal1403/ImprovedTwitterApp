@@ -22,12 +22,12 @@ public class MainActivity extends Activity implements OnItemClickListener{
      TextView loader;
      ListView listUsers;
      Context mContext;
-    UserAdapter adapter;
+     UserAdapter adapter;
    
-    ArrayList<Bitmap> profileImg;
-    ArrayList<TweetItem> tweet;
+     ArrayList<Bitmap> profileImg;
+     ArrayList<TweetItem> tweet;
     
-    String[] user = {"@HannahTrigwell","@BestMackleMore","@Eminem","@taylorswift13","@GabrielleAplin","@Imaginedragons","@ladygaga"};
+     String[] user = {"@HannahTrigwell","@BestMackleMore","@Eminem","@taylorswift13","@GabrielleAplin","@Imaginedragons","@ladygaga"};
  
 	
  
@@ -110,7 +110,7 @@ public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	 
 
 	 
-     startActivity(intent);
+         startActivity(intent);
 	
 	
 }
