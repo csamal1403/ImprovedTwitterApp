@@ -37,13 +37,13 @@ public class UsersDownloader extends AsyncTask<String, Void, ArrayList<TweetItem
 	private MainActivity mParentActivity;
 
 	
-    Twitter mTwitter;
+        Twitter mTwitter;
 	
     //CAUTION....These are my keys...these keys are Unique to an App...
     //Get your Own keys from Twitter by registering your App at Twitter..
     //Register your App at dev.twitter.com
     
-    String consumer_key = "Ny8sPUjmdvyIlRwrp8cxeg";
+        String consumer_key = "Ny8sPUjmdvyIlRwrp8cxeg";
    	String consumer_secret = "ktyxzrpF0dVj5pENft5BSpbbRpC05qwWGpwGDXU66Js";
    	String access_token = "2355083988-YEQmzejzl9mz9JJv1YDhuwt3GLW5PN5eqArYN9K";
    	String access_token_secret = "vJXB8oBUcBKXnUyecU852MeFJdckwkCylBH3hKI8Pg14u";
@@ -81,9 +81,9 @@ public class UsersDownloader extends AsyncTask<String, Void, ArrayList<TweetItem
 			 
 				
 				String args = users[i];
-			    ResponseList<twitter4j.Status> status1 = mTwitter.getUserTimeline(args);
+			        ResponseList<twitter4j.Status> status1 = mTwitter.getUserTimeline(args);
 			
-			    List<twitter4j.Status> statuses = status1.subList(0, 1);
+			        List<twitter4j.Status> statuses = status1.subList(0, 1);
 				
 				
 			  
