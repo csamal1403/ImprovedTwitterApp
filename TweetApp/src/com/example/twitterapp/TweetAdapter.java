@@ -17,10 +17,8 @@ public class TweetAdapter extends BaseAdapter{
 
 	
 	private List<TweetItem> mItems = new ArrayList<TweetItem>();
-	
-	
-    private final Context mContext;
-    Status mStatus;
+	private final Context mContext;
+        Status mStatus;
   
 	
      
@@ -72,7 +70,7 @@ public class TweetAdapter extends BaseAdapter{
 	  }
 	  
 	  
-		  TweetItem tweet = mItems.get(position);
+		TweetItem tweet = mItems.get(position);
 		
 		ImageView tweetImage = (ImageView)convertView.findViewById(R.id.tweetImage);
 		TextView tweetName = (TextView)convertView.findViewById(R.id.tweetName);
