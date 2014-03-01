@@ -25,14 +25,14 @@ public class UserActivity extends Activity{
 	Context mContext;
 	TweetAdapter tweetAdapter;
 	Twitter mTwitter;
-	 LinearLayout container;
+	LinearLayout container;
 	ImageView profileImage,backgroundImage;
-    TextView userInfo,userLocation,userName,tweetLabel,loading;
+        TextView userInfo,userLocation,userName,tweetLabel,loading;
 	String result,screenName,Location,Info;
 	ListView listTweets;
 	ProgressBar progress;
 	Bitmap pic;
-	 ArrayList<TweetItem> tweet;
+	ArrayList<TweetItem> tweet;
 	
 	
 	
@@ -42,9 +42,8 @@ public class UserActivity extends Activity{
 		super.onCreate(savedInstanceState);
 
 		     
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-                                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+ 	requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	
 		
 		setContentView(R.layout.user);
@@ -62,25 +61,25 @@ public class UserActivity extends Activity{
 		
 		
 		//Getting reference to the UI Elements..
-		  container = (LinearLayout) findViewById(R.id.containerUser);
-		  userInfo = (TextView) findViewById(R.id.userInfo);
-		  userLocation = (TextView) findViewById(R.id.userLocation);
-	      userName = (TextView) findViewById(R.id.userName);
-	      profileImage = (ImageView) findViewById(R.id.profileImage);
-	      listTweets = (ListView) findViewById(R.id.listTweets);
-	      tweetLabel = (TextView) findViewById(R.id.tweetLabel);
+		container = (LinearLayout) findViewById(R.id.containerUser);
+		userInfo = (TextView) findViewById(R.id.userInfo);
+		userLocation = (TextView) findViewById(R.id.userLocation);
+	        userName = (TextView) findViewById(R.id.userName);
+	        profileImage = (ImageView) findViewById(R.id.profileImage);
+	        listTweets = (ListView) findViewById(R.id.listTweets);
+	        tweetLabel = (TextView) findViewById(R.id.tweetLabel);
 	     
-	      loading = (TextView) findViewById(R.id.loading);
-	      loading.setBackgroundColor(Color.rgb(79, 213, 214));
+	        loading = (TextView) findViewById(R.id.loading);
+	        loading.setBackgroundColor(Color.rgb(79, 213, 214));
 		
-		 mContext = getApplicationContext();
-	     tweetAdapter = new TweetAdapter(mContext);
+		mContext = getApplicationContext();
+	        tweetAdapter = new TweetAdapter(mContext);
 		
 	    //Executing the Tweet Downloader Async Task to download 5 recent Tweets of the User... 
-        new TweetDownloader(this).execute(result);
+                new TweetDownloader(this).execute(result);
         
 		 
-	    listTweets.setAdapter(tweetAdapter);
+	        listTweets.setAdapter(tweetAdapter);
 		 
 		 
 	
@@ -94,14 +93,14 @@ public class UserActivity extends Activity{
 	  
 	    
      
-      loading.setVisibility(TextView.GONE);
-      container.setBackgroundColor(Color.rgb(79, 213, 214));
+          loading.setVisibility(TextView.GONE);
+          container.setBackgroundColor(Color.rgb(79, 213, 214));
 	  tweetLabel.setVisibility(TextView.VISIBLE);
  
 	 
 	  
-		   profileImage.setImageBitmap(pic);
-		   userName.setText(screenName);
+	       profileImage.setImageBitmap(pic);
+	       userName.setText(screenName);
 	       userLocation.setText(Location);
 	       userInfo.setText(Info); 
 			
@@ -109,8 +108,8 @@ public class UserActivity extends Activity{
 		  for(int i=0 ; i < tItems.size();i++){
 				 
 			   TweetItem item = new TweetItem(tItems.get(i).getTweet());
-				item.setProfileImage(pic);
-				item.setScreenName(screenName);
+			   item.setProfileImage(pic);
+			   item.setScreenName(screenName);
 			   tweet.add(item);
 							 
 			 }
@@ -119,7 +118,7 @@ public class UserActivity extends Activity{
 		  
 		  for(int i=0 ; i < tweet.size();i++){
 				 
-				 tweetAdapter.add(tweet.get(i));
+		           tweetAdapter.add(tweet.get(i));
 							 
 			 }
 		  
